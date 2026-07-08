@@ -25,6 +25,16 @@ main = "index.js"
 compatibility_date = "2026-01-01"
 compatibility_flags = ["global_fetch_strictly_public"]
 
+# 构建配置（适配 Node 24 和依赖解析）
+[build]
+command = "npm ci --omit=dev"
+
+# 别名配置（解决 Node 24 下的依赖解析问题）
+[alias]
+"@aws-sdk/client-s3" = "node_modules/@aws-sdk/client-s3/dist-es/index.js"
+"@cloudflare/pages-plugin-sentry" = "node_modules/@cloudflare/pages-plugin-sentry/index.js"
+"@sentry/tracing" = "node_modules/@sentry/tracing/esm/index.js"
+
 [assets]
 directory = "../../frontend-dist"
 binding = "ASSETS"

@@ -54,11 +54,11 @@ jobs:
         if: steps.check.outputs.skip != 'true'
         uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '24'
 
       - name: Install dependencies
         if: steps.check.outputs.skip != 'true'
-        run: npm ci --omit=dev --omit=optional
+        run: npm ci
 
       - name: Generate worker routes
         if: steps.check.outputs.skip != 'true'
